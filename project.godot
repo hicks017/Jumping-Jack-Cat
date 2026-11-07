@@ -32,6 +32,12 @@ jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="cat"
+2d_physics/layer_2="objects"
+2d_physics/layer_3="score_zone"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

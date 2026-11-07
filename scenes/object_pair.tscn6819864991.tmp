@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://pp7ycphnmpmq"]
+
+[ext_resource type="Script" uid="uid://cynouej7ffnwt" path="res://scenes/object_pair.gd" id="1_eha10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mwmh"]
+size = Vector2(40, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjwaw"]
+size = Vector2(5, 158)
+
+[node name="object_pair" type="Node2D" unique_id=1006174154]
+script = ExtResource("1_eha10")
+
+[node name="top_placeholder" type="Area2D" parent="." unique_id=1941128310]
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="top_placeholder" unique_id=481062407]
+offset_right = 40.0
+offset_bottom = 400.0
+color = Color(0.8458808, 0.74493885, 0.40133223, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top_placeholder" unique_id=1307227124]
+position = Vector2(20, 200)
+shape = SubResource("RectangleShape2D_0mwmh")
+
+[node name="bottom_placeholder" type="Area2D" parent="." unique_id=62276361]
+position = Vector2(0, 560)
+metadata/_edit_group_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="bottom_placeholder" unique_id=809024503]
+offset_right = 40.0
+offset_bottom = 400.0
+color = Color(0.8458808, 0.74493885, 0.40133223, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bottom_placeholder" unique_id=286294771]
+position = Vector2(20, 200)
+shape = SubResource("RectangleShape2D_0mwmh")
+
+[node name="score_zone" type="Area2D" parent="." unique_id=621737726]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="score_zone" unique_id=1013965414]
+position = Vector2(38.5, 480)
+shape = SubResource("RectangleShape2D_gjwaw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1929569452]
+rect = Rect2(0, 0, 39, 960)
