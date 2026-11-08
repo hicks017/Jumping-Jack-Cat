@@ -1,3 +1,4 @@
+class_name ObjectPair
 extends Node2D
 
 signal scored
