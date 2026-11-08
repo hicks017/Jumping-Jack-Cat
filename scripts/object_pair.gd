@@ -1,7 +1,7 @@
 extends Node2D
 
 signal scored
-signal cat_collision
+signal hit_player
 
 @export var speed := 250.0
 
@@ -19,14 +19,13 @@ func _ready() -> void:
 	notifier.screen_exited.connect(queue_free)
 
 func _on_object_body_entered(_body: Node2D) -> void:
-	cat_collision.emit()
+	hit_player.emit()
 
 func _on_score_body_entered(_body: Node2D) -> void:
 	scored.emit()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _physics_process(delta: float) -> void:
 	position.x -= speed * delta
+
+func stop() -> void:
+	set_physics_process(false)
