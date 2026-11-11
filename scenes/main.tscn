@@ -9,9 +9,11 @@ script = ExtResource("1_0wfyh")
 pair_scene = ExtResource("2_jyhfs")
 
 [node name="cat" parent="." unique_id=1457261877 instance=ExtResource("2_sugp2")]
+unique_name_in_owner = true
 position = Vector2(135, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=617337214]
+unique_name_in_owner = true
 wait_time = 1.5
 autostart = true
 
@@ -28,5 +30,30 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
 text = "100"
+
+[node name="GameOverUI" type="VBoxContainer" parent="CanvasLayer" unique_id=361211477]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -29.0
+offset_right = 43.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/GameOverUI" unique_id=2103791992]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/GameOverUI" unique_id=1385802923]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Restart"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

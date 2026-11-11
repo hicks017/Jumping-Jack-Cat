@@ -1,9 +1,16 @@
+class_name Cat
 extends CharacterBody2D
 
 @export var jump_velocity := -550.0
 @export var gravity := 1400.0
 
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+var dead: bool = false
+
 func _physics_process(delta: float) -> void:
+	if dead:
+		return
 	# Add the gravity.
 	velocity.y += gravity * delta
 
@@ -16,6 +23,10 @@ func _physics_process(delta: float) -> void:
 
 func _update_animation() -> void:
 	if velocity.y >= -100.0:
-		$AnimatedSprite2D.play("down")
+		sprite.play("down")
 	else:
-		$AnimatedSprite2D.play("up")
+		sprite.play("up")
+
+func die() -> void:
+	dead = true
+	velocity = Vector2.ZERO
