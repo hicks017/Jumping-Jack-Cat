@@ -13,7 +13,6 @@ config_version=5
 config/name="Jumping Jack Cat"
 run/main_scene="uid://bgssgqh8qtmaw"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [display]
 

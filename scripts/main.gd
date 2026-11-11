@@ -36,14 +36,26 @@ func _on_pair_scored() -> void:
 
 
 func _on_pair_hit_player() -> void:
-	if game_over:
-		return
-	game_over = true
-	game_over_ui.visible = true
-	timer.stop()
-	get_tree().call_group("objects", "stop")
-	cat.die()
+	_end_game()
 
 
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
+func _end_game() -> void:
+	if game_over:
+		return
+	if cat.position.y > 960:
+		game_over = true
+		game_over_ui.visible = true
+		timer.stop()
+		get_tree().call_group("objects", "stop")
+		cat.die()
+
+
+func _physics_process(_delta: float) -> void:
+	if game_over:
+		return
+	if cat.position.y > get_viewport_rect().size.y + 32:
+		_end_game()
