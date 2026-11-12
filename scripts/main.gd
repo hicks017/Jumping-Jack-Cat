@@ -46,12 +46,11 @@ func _on_restart_pressed() -> void:
 func _end_game() -> void:
 	if game_over:
 		return
-	if cat.position.y > 960:
-		game_over = true
-		game_over_ui.visible = true
-		timer.stop()
-		get_tree().call_group("objects", "stop")
-		cat.die()
+	game_over = true
+	game_over_ui.visible = true
+	timer.stop()
+	get_tree().call_group("objects", "stop")
+	cat.die()
 
 
 func _physics_process(_delta: float) -> void:
